@@ -123,7 +123,7 @@ window.$ = window.jQuery = function (selectorOrArrayOrTemplate) {
 
   if (typeof selectorOrArrayOrTemplate === "string") {
     if (selectorOrArrayOrTemplate[0] === "<") {
-      elements = [createElements(selectorOrArrayOrTemplate)];
+      elements = [createElement(selectorOrArrayOrTemplate)];
     } else {
       elements = document.querySelectorAll(selectorOrArrayOrTemplate);
     }
@@ -131,8 +131,8 @@ window.$ = window.jQuery = function (selectorOrArrayOrTemplate) {
     elements = selectorOrArrayOrTemplate;
   }
 
-  function createElements(string) {
-    var container = document.Element("template");
+  function createElement(string) {
+    var container = document.createElement("template");
     container.innerHTML = string.trim();
     return container.content.firstChild;
   }
@@ -149,8 +149,8 @@ jQuery.fn = jQuery.prototype = {
   constructor: jQuery,
   jQuery: true,
   addClass: function addClass(className) {
-    for (var i = 0; i < elements.length; i++) {
-      var element = elements[i];
+    for (var i = 0; i < this.elements.length; i++) {
+      var element = this.elements[i];
       element.classList.add(className);
     }
 
@@ -159,8 +159,8 @@ jQuery.fn = jQuery.prototype = {
   find: function find(selector) {
     var array = [];
 
-    for (var i = 0; i < elements.length; i++) {
-      var elements2 = Array.from(elements[i].querySelectorAll(selector));
+    for (var i = 0; i < this.elements.length; i++) {
+      var elements2 = Array.from(this.elements[i].querySelectorAll(selector));
       array = array.concat(elements2);
     }
 
@@ -196,7 +196,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54729" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53494" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
